@@ -1,6 +1,6 @@
 package com.kooixiuhong;
 
-import com.kooixiuhong.arrays.ArrayTest;
+import com.kooixiuhong.challenges.arrays.ArrayTest;
 
 public class Main {
 
