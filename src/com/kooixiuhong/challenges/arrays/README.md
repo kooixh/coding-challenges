@@ -8,8 +8,8 @@ Coding challenge questions for the following topics
  
 ## Questions
 
-### Q1 [Easy]
-Find the duplicated element in an array, return error if no duplication 
+### Q1 [Easy] 
+Find the duplicated element in an array, return error if no duplication :white_check_mark:
 
 `[1,2,3,4,5,6,5] => 5`
 
