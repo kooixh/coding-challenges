@@ -1,13 +1,17 @@
 package com.kooixiuhong;
 
 import com.kooixiuhong.challenges.arrays.ArrayTest;
+import com.kooixiuhong.challenges.stacks.StackTest;
+import com.kooixiuhong.commons.TestAggregator;
 
 public class Main {
 
     public static void main(String[] args) {
         int returnCode = 0;
 	    // TODO setup automated testing
-        returnCode = ArrayTest.run();
+        ArrayTest.run();
+        StackTest.run();
+        returnCode = TestAggregator.aggregate();
         System.exit(returnCode);
     }
 }

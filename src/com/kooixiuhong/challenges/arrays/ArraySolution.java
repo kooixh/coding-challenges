@@ -1,5 +1,7 @@
 package com.kooixiuhong.challenges.arrays;
 
+import com.kooixiuhong.challenges.arrays.extras.Node;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +14,6 @@ public class ArraySolution {
 
 
     public int questionOne(int[] input) {
-
         Set<Integer> hashSet = new HashSet<>();
 
         for (int i : input) {
@@ -21,5 +22,18 @@ public class ArraySolution {
             hashSet.add(i);
         }
         throw new IllegalArgumentException("Array does not contains duplicate");
+    }
+
+
+    public Node questionTwo(Node head) {
+        Node prev = null;
+        while (head != null && head.next != null) {
+            Node temp = head.next;
+            head.next = prev;
+            prev = head;
+            head = temp;
+        }
+        head.next = prev;
+        return head;
     }
 }
