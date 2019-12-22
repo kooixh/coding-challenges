@@ -9,10 +9,7 @@ public class ArrayTest extends SolutionTest {
     public static int run() {
         System.out.println("Running array tests...");
         testQuestionOne();
-
-        System.out.println("Completed array test, total " + totalTests + " tests.");
-        printGreen(totalPassed + " passed");
-        printRed(totalFailed + " failed");
+        printResult("array");
         return totalFailed;
     }
 
