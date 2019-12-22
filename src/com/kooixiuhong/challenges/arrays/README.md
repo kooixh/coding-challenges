@@ -8,8 +8,8 @@ Coding challenge questions for the following topics
  
 ## Questions
 
-### Q1 [Easy] 
-Find the duplicated element in an array, return error if no duplication :white_check_mark:
+### Q1 [Easy] :white_check_mark:
+Find the duplicated element in an array, return error if no duplication 
 
 `[1,2,3,4,5,6,5] => 5`
 
@@ -17,10 +17,10 @@ Find the duplicated element in an array, return error if no duplication :white_c
 
 `[1,2,3,4,5] => error`
 
-### Q2 [Easy]
+### Q2 [Easy] :white_check_mark:
 Reverse a linked list, not allowed to use Java LinkedList
 
-`1->2->3->4->5->6] => 6->5->4->3->2->1`
+`1->2->3->4->5->6 => 6->5->4->3->2->1`
 
 `4->2->1->8->9->0 => 0->9->8->1->2->4`
 
