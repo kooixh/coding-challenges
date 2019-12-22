@@ -8,7 +8,7 @@ Coding challenge questions for the following topics
  
 ## Questions
 
-### Q1 [Easy] 
+### Q1 [Easy] :white_check_mark:
 Sum up a stack, without rearranging
 
 ### Q2 [Easy]
