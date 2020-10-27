@@ -22,7 +22,7 @@ public class ArrayTest extends SolutionTest {
         int input[] = {1, 2, 3, 4, 5, 4};
         int expected = 4;
         System.out.print("test 1: ");
-        if (expected == solution.questionOne(input)) {
+        if (expected == solution.findADuplicateInArray(input)) {
             printGreen("passed");
             totalPassed++;
         } else {
@@ -34,7 +34,7 @@ public class ArrayTest extends SolutionTest {
         System.out.print("test 2: ");
         int input2[] = {1, 2, 3, 4,5};
         try {
-            int output = solution.questionOne(input2);
+            int output = solution.findADuplicateInArray(input2);
             printRed("failed");
             totalFailed++;
         } catch (IllegalArgumentException iae) {
@@ -58,7 +58,7 @@ public class ArrayTest extends SolutionTest {
             current.next = newNode;
             current = current.next;
         }
-        Node resultNode = solution.questionTwo(node);
+        Node resultNode = solution.reverseALinkedList(node);
         List<Integer> resultList = new ArrayList<>(); //reversed of input
         while (resultNode != null) {
             resultList.add(resultNode.value);
@@ -92,7 +92,7 @@ public class ArrayTest extends SolutionTest {
             current2.next = newNode;
             current2 = current2.next;
         }
-        Node resultNode2 = solution.questionTwo(node2);
+        Node resultNode2 = solution.reverseALinkedList(node2);
         List<Integer> resultList2 = new ArrayList<>(); //reversed of input
         while (resultNode2 != null) {
             resultList2.add(resultNode2.value);

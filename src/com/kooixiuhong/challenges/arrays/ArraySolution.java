@@ -13,9 +13,8 @@ import java.util.Set;
 public class ArraySolution {
 
 
-    public int questionOne(int[] input) {
+    public int findADuplicateInArray(int[] input) {
         Set<Integer> hashSet = new HashSet<>();
-
         for (int i : input) {
             if (hashSet.contains(i))
                 return i;
@@ -25,7 +24,7 @@ public class ArraySolution {
     }
 
 
-    public Node questionTwo(Node head) {
+    public Node reverseALinkedList(Node head) {
         Node prev = null;
         while (head != null && head.next != null) {
             Node temp = head.next;
