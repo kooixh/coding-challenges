@@ -15,6 +15,7 @@ public abstract class SolutionTest {
     protected static void printRed(String str) {
         System.out.println(ANSI_RED + str + ANSI_RESET);
     }
+
     protected static void printResult(String testName) {
         System.out.println("Completed " + testName + " test, total " + totalTests + " tests.");
         printGreen(totalPassed + " passed");

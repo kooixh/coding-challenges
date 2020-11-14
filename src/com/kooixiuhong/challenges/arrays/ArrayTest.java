@@ -11,12 +11,11 @@ public class ArrayTest extends SolutionTest {
 
     private static ArraySolution solution = new ArraySolution();
 
-    public static int run() {
+    public static void run() {
         System.out.println("Array tests");
         testArrayDups();
         testReturnLinkedList();
         testUnsortedTwoSum();
-        return totalFailed;
     }
 
     public static void testArrayDups() {

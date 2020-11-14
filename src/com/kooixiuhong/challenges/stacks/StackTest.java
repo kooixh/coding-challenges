@@ -8,13 +8,12 @@ public class StackTest extends SolutionTest {
 
     private static StackSolution solution = new StackSolution();
 
-    public static int run() {
+    public static void run() {
         System.out.println("Stacks tests");
         testQuestionOne();
-        return totalFailed;
     }
     public static void testQuestionOne() {
-        System.out.println("Running question 1 tests...");
+        System.out.println("Running sum of stack tests...");
         Stack<Integer> stack = new Stack<>();
         stack.push(10);
         stack.push(5);
