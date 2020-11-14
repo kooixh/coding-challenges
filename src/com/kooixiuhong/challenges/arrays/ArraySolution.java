@@ -1,6 +1,6 @@
 package com.kooixiuhong.challenges.arrays;
 
-import com.kooixiuhong.challenges.arrays.extras.Node;
+import com.kooixiuhong.challenges.arrays.extras.ListNode;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,10 +37,10 @@ public class ArraySolution {
      * @param
      * @return
      */
-    public Node reverseALinkedList(Node head) {
-        Node prev = null;
+    public ListNode reverseALinkedList(ListNode head) {
+        ListNode prev = null;
         while (head != null && head.next != null) {
-            Node temp = head.next;
+            ListNode temp = head.next;
             head.next = prev;
             prev = head;
             head = temp;

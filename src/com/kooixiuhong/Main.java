@@ -1,6 +1,7 @@
 package com.kooixiuhong;
 
 import com.kooixiuhong.challenges.arrays.ArrayTest;
+import com.kooixiuhong.challenges.graphs.trees.TreeTest;
 import com.kooixiuhong.challenges.hashtable.HashTableTest;
 import com.kooixiuhong.challenges.stacks.StackTest;
 import com.kooixiuhong.commons.TestAggregator;
@@ -13,6 +14,7 @@ public class Main {
         ArrayTest.run();
         StackTest.run();
         HashTableTest.run();
+        TreeTest.run();
         returnCode = TestAggregator.aggregate();
         System.exit(returnCode);
     }

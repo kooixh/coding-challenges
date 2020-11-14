@@ -12,9 +12,10 @@ public class HashTableTest extends SolutionTest {
     }
 
     public static void testWordFrequency() {
+        System.out.println("Running word frequency tests");
         String[] words = {"this", "is", "a", "book", "with", "a", "lot", "of", "words", "in" ,"the", "book", "a"};
 
-        System.out.println("test 1: ");
+        System.out.print("test 1: ");
         int ex1 = 2;
         int actual = hashTableSolution.wordFrequency(words, "book");
         if (ex1 == actual) {
@@ -25,7 +26,7 @@ public class HashTableTest extends SolutionTest {
             totalFailed++;
         }
 
-        System.out.println("test 2: ");
+        System.out.print("test 2: ");
         int ex2 = 3;
         actual = hashTableSolution.wordFrequency(words, "a");
         if (ex2 == actual) {
@@ -36,7 +37,7 @@ public class HashTableTest extends SolutionTest {
             totalFailed++;
         }
 
-        System.out.println("test 3: ");
+        System.out.print("test 3: ");
         int ex3 = 0;
         actual = hashTableSolution.wordFrequency(words, "none");
         if (ex3 == actual) {
