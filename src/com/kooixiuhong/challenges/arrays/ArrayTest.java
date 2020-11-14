@@ -16,6 +16,7 @@ public class ArrayTest extends SolutionTest {
         testArrayDups();
         testReturnLinkedList();
         testUnsortedTwoSum();
+        testLivingPeople();
     }
 
     public static void testArrayDups() {
@@ -147,6 +148,21 @@ public class ArrayTest extends SolutionTest {
         }
 
         totalTests++;
+    }
+
+
+    private static void testLivingPeople() {
+        int[] birth = {1906, 1908, 1910, 1911, 1915};
+        int[] death = {1909, 1920, 1915, 1923, 1924};
+        int expected = 1915;
+        int actual = solution.livingPeople(birth, death);
+        if (expected == actual) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            totalFailed++;
+        }
     }
 
 

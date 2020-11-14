@@ -72,5 +72,43 @@ public class ArraySolution {
         return new int[]{-1, -1};
     }
 
-    
+    /**
+     *
+     * Given the birth year and death year, find the year with most people alive
+     *
+     * years 1900 - 2000
+     *
+     * @param birth
+     * @param death
+     * @return
+     */
+    public int livingPeople(int[] birth, int[] death) {
+        int[] birthCount = new int[100];
+        int[] deathCount = new int[100];
+        int[] dp = new int[100];
+
+        for (int i = 0; i < birth.length; i++) {
+            birthCount[birth[i] - 1900]++;
+            deathCount[death[i] - 1900]++;
+        }
+
+        dp[0] = birthCount[0] + deathCount[0];
+        for (int i = 1; i < dp.length; i++) {
+            dp[i] = dp[i - 1] + birthCount[i] + deathCount[i] - deathCount[i - 1];
+        }
+
+        int max = -1;
+        int ans = -1;
+        for (int i = 0; i < dp.length; i++) {
+            if (dp[i] > max) {
+                max = dp[i];
+                ans = i;
+            }
+        }
+        return ans + 1900;
+
+
+    }
+
+
 }
