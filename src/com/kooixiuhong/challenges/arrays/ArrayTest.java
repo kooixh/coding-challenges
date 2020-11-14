@@ -4,6 +4,7 @@ import com.kooixiuhong.challenges.arrays.extras.Node;
 import com.kooixiuhong.commons.SolutionTest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ArrayTest extends SolutionTest {
@@ -12,14 +13,15 @@ public class ArrayTest extends SolutionTest {
 
     public static int run() {
         System.out.println("Array tests");
-        testQuestionOne();
-        testQuestionTwo();
+        testArrayDups();
+        testReturnLinkedList();
+        testUnsortedTwoSum();
         return totalFailed;
     }
 
-    public static void testQuestionOne() {
-        System.out.println("Running question 1 tests...");
-        int input[] = {1, 2, 3, 4, 5, 4};
+    public static void testArrayDups() {
+        System.out.println("Running array duplicates tests...");
+        int[] input = {1, 2, 3, 4, 5, 4};
         int expected = 4;
         System.out.print("test 1: ");
         if (expected == solution.findADuplicateInArray(input)) {
@@ -44,9 +46,9 @@ public class ArrayTest extends SolutionTest {
         totalTests++;
     }
 
-    public static void testQuestionTwo() {
-        System.out.println("Running question 2 tests...");
-        int input[] = {1, 2, 3, 4, 5};
+    public static void testReturnLinkedList() {
+        System.out.println("Running reverse linked list tests...");
+        int[] input = {1, 2, 3, 4, 5};
         System.out.print("test 1: ");
         Node node = new Node(); // head of the list
         node.value = 1;
@@ -80,7 +82,7 @@ public class ArrayTest extends SolutionTest {
         }
         totalTests++;
 
-        int input2[] = {4, 6, 7, 8, 10};
+        int[] input2 = {4, 6, 7, 8, 10};
         System.out.print("test 2: ");
         Node node2 = new Node(); // head of the list
         node2.value = 4;
@@ -114,4 +116,39 @@ public class ArrayTest extends SolutionTest {
         }
         totalTests++;
     }
+
+    public static void testUnsortedTwoSum() {
+        System.out.println("Running unsorted Two Sum tests...");
+        int[] nums = {4, 5, 6, 4, 2, 10};
+        int k = 7;
+        int[] expected = {1, 4};
+        System.out.print("test 1: ");
+        int[] actual = solution.unsortedTwoSum(nums, k);
+        if (Arrays.equals(expected, actual)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            printRed("expected: " + Arrays.toString(expected) + " got: " + Arrays.toString(actual));
+            totalFailed++;
+        }
+        totalTests++;
+        // Testing case with no duplicate
+        System.out.print("test 2: ");
+        int[] test2 = {1, 9, 2, 8, 2};
+        int k2 = 5;
+        int[] expected2 = {-1, -1};
+
+        if (Arrays.equals(expected2, solution.unsortedTwoSum(test2, k2))) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            totalFailed++;
+        }
+
+        totalTests++;
+    }
+
+
 }
