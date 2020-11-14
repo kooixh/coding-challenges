@@ -74,7 +74,7 @@ public class ArraySolution {
 
     /**
      *
-     * Given the birth year and death year, find the year with most people alive
+     * Given the birth year and death year, find the year with most people alive, see Cracking The Coding Interview 16.10
      *
      * years 1900 - 2000
      *
