@@ -27,7 +27,7 @@ test to be run automatically.
 3. Make sure tests pass by calling the verify result method.
 
 Example
-```$xslt java
+```java
 static void testNumberOfIsland() {
     int[][] map1 = {{1, 1, 1, 1, 0}, {1, 1, 0, 1, 0}, {1, 1, 0, 0, 0}, {0, 0, 0, 0, 0}};
     int expected1 = 1;
