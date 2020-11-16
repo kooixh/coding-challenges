@@ -111,7 +111,16 @@ public class ArraySolution {
 
     }
 
+    /**
+     *
+     * Given an array, return indicies m, n such that if m - n is sorted then the array is sorted
+     *
+     * @param arr
+     * @return
+     */
     public int[] subSortArray(int[] arr) {
+        if (arr.length == 0) return new int[] {0,0};
+
         int[] rightMin = new int[arr.length];
         int[] leftMax = new int[arr.length];
         leftMax[0] = arr[0];
@@ -140,7 +149,17 @@ public class ArraySolution {
 
         return new int[]{start, end};
 
+    }
 
+    public int subArrayWithMaxSum(int[] arr) {
+        if (arr.length == 0) return 0;
+        int sum = arr[0];
+        int current = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            current = Math.max(current + arr[i], arr[i]);
+            sum = Math.max(sum, current);
+        }
+        return sum;
     }
 
 

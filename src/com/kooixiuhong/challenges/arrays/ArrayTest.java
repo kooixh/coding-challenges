@@ -176,6 +176,7 @@ public class ArrayTest extends SolutionTest {
         int[] ex1 = {3,9};
 
         int[] actual1 = solution.subSortArray(arr1);
+        System.out.print("test 1: ");
         if (Arrays.equals(ex1, actual1)) {
             printGreen("passed");
             totalPassed++;
@@ -189,6 +190,7 @@ public class ArrayTest extends SolutionTest {
         int[] ex2 = {4,8};
 
         int[] actual2 = solution.subSortArray(arr2);
+        System.out.print("test 2: ");
         if (Arrays.equals(ex2, actual2)) {
             printGreen("passed");
             totalPassed++;
@@ -202,6 +204,7 @@ public class ArrayTest extends SolutionTest {
         int[] ex3 = {8,12};
 
         int[] actual3 = solution.subSortArray(arr3);
+        System.out.print("test 3: ");
         if (Arrays.equals(ex3, actual3)) {
             printGreen("passed");
             totalPassed++;
@@ -211,6 +214,65 @@ public class ArrayTest extends SolutionTest {
             totalFailed++;
         }
 
+    }
+
+    static void testSubArrayMaxSum() {
+        System.out.println("Running sub array max sum tests...");
+        int[] arr1 = {2, -8, 3, -2, 4, -10};
+        int ex1 = 5;
+
+        int actual1 = solution.subArrayWithMaxSum(arr1);
+        System.out.print("test 1: ");
+        if (ex1 == actual1) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + ex1 + " got: " + actual1);
+            totalFailed++;
+        }
+
+        int[] arr2 = {-2,1,-3,4,-1,2,1,-5,4};
+        int ex2 = 6;
+
+        int actual2 = solution.subArrayWithMaxSum(arr2);
+        System.out.print("test 2: ");
+        if (ex2 == actual2) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + ex2 + " got: " + actual2);
+            totalFailed++;
+        }
+
+        int[] arr3 = {-1};
+        int ex3 = -1;
+
+        int actual3 = solution.subArrayWithMaxSum(arr3);
+        System.out.print("test 3: ");
+        if (ex3 == actual3) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + ex3 + " got: " + actual3);
+            totalFailed++;
+        }
+
+        int[] arr4 = {-2, -3, 4, -1, -2, 1, 5, -3};
+        int ex4 = 7;
+
+        int actual4 = solution.subArrayWithMaxSum(arr4);
+        System.out.print("test 4: ");
+        if (ex4 == actual4) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + ex3 + " got: " + actual3);
+            totalFailed++;
+        }
     }
 
 
