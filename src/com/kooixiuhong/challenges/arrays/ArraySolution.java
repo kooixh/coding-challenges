@@ -2,6 +2,7 @@ package com.kooixiuhong.challenges.arrays;
 
 import com.kooixiuhong.challenges.arrays.extras.ListNode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -106,6 +107,38 @@ public class ArraySolution {
             }
         }
         return ans + 1900;
+
+
+    }
+
+    public int[] subSortArray(int[] arr) {
+        int[] rightMin = new int[arr.length];
+        int[] leftMax = new int[arr.length];
+        leftMax[0] = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], arr[i - 1]);
+        }
+        rightMin[arr.length - 1] = arr[arr.length - 1];
+        for (int i = arr.length - 2; i >= 0; i--) {
+            rightMin[i] = Math.min(rightMin[i + 1], arr[i +1]);
+        }
+
+        int start = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > rightMin[i]) {
+                start = i;
+                break;
+            }
+        }
+        int end = arr.length - 1;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] < leftMax[i]) {
+                end = i;
+                break;
+            }
+        }
+
+        return new int[]{start, end};
 
 
     }

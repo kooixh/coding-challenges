@@ -17,6 +17,7 @@ public class ArrayTest extends SolutionTest {
         testReturnLinkedList();
         testUnsortedTwoSum();
         testLivingPeople();
+        testSubSort();
     }
 
     public static void testArrayDups() {
@@ -165,6 +166,49 @@ public class ArrayTest extends SolutionTest {
             printRed("failed");
             totalFailed++;
         }
+    }
+
+    private static void testSubSort() {
+        System.out.println("Running sub sort tests...");
+        int[] arr1 = {1,2,4,7,10,11,7,12,6,7,16,18,19};
+        int[] ex1 = {3,9};
+
+        int[] actual1 = solution.subSortArray(arr1);
+        if (Arrays.equals(ex1, actual1)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + Arrays.toString(ex1) + " got: " + Arrays.toString(actual1));
+            totalFailed++;
+        }
+
+        int[] arr2 = {1,2,3,4,10,11,7,12,6,15,16,18,19};
+        int[] ex2 = {4,8};
+
+        int[] actual2 = solution.subSortArray(arr2);
+        if (Arrays.equals(ex2, actual2)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + Arrays.toString(ex2) + " got: " + Arrays.toString(actual2));
+            totalFailed++;
+        }
+
+        int[] arr3 = {1,2,3,4,5,6,7,8,19,15,16,17,9};
+        int[] ex3 = {8,12};
+
+        int[] actual3 = solution.subSortArray(arr3);
+        if (Arrays.equals(ex3, actual3)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            System.out.println("expected: " + Arrays.toString(ex2) + " got: " + Arrays.toString(actual2));
+            totalFailed++;
+        }
+
     }
 
 

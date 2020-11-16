@@ -2,6 +2,17 @@ package com.kooixiuhong.challenges.graphs;
 
 public class GraphSolution {
 
+    /**
+     *
+     * Given an m x n 2d grid map of '1's (land) and '0's (water), return the number of islands.
+     *
+     * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+     *
+     * Ref: https://leetcode.com/problems/number-of-islands/
+     *
+     * @param map
+     * @return
+     */
     public int numberOfIslands(int[][] map) {
         int ans = 0;
         for (int i = 0; i < map.length; i++) {
