@@ -42,13 +42,7 @@ public class TreeTest extends SolutionTest {
 
         List<List<Integer>> actual = treeSolution.binaryLevelOrderTraversal(root);
         System.out.print("test 1: ");
-        if (expected.equals(actual)) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            totalFailed++;
-        }
+        verify(expected, actual);
     }
 
 }

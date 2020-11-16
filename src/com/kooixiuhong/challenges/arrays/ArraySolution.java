@@ -2,7 +2,6 @@ package com.kooixiuhong.challenges.arrays;
 
 import com.kooixiuhong.challenges.arrays.extras.ListNode;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -151,6 +150,16 @@ public class ArraySolution {
 
     }
 
+    /**
+     *
+     * Given an integer array nums, find the contiguous subarray (containing at least one number)
+     * which has the largest sum and return its sum.
+     *
+     * Ref: https://leetcode.com/problems/maximum-subarray/
+     *
+     * @param arr
+     * @return
+     */
     public int subArrayWithMaxSum(int[] arr) {
         if (arr.length == 0) return 0;
         int sum = arr[0];

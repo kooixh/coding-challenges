@@ -1,6 +1,5 @@
 package com.kooixiuhong.challenges.stacks;
 
-import com.kooixiuhong.challenges.arrays.ArrayTest;
 import com.kooixiuhong.commons.SolutionTest;
 
 import java.lang.reflect.InvocationTargetException;
@@ -16,7 +15,7 @@ public class StackTest extends SolutionTest {
         Method[] methods = StackTest.class.getDeclaredMethods();
         StackTest t = new StackTest();
         for (Method method : methods) {
-            if (!method.getName().equals("run"))
+            if (method.getName().startsWith("test"))
                 method.invoke(t);
         }
     }

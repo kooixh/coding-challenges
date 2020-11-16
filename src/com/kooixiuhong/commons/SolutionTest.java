@@ -1,5 +1,7 @@
 package com.kooixiuhong.commons;
 
+import java.util.Arrays;
+
 public abstract class SolutionTest {
     protected static final String ANSI_RED = "\u001B[31m";
     protected static final String ANSI_RESET = "\u001B[0m";
@@ -20,6 +22,37 @@ public abstract class SolutionTest {
         System.out.println("Completed " + testName + " test, total " + totalTests + " tests.");
         printGreen(totalPassed + " passed");
         printRed(totalFailed + " failed");
+    }
+
+
+    protected static void verify(Object expected, Object actual) {
+        if (expected.equals(actual)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            totalFailed++;
+        }
+    }
+
+    protected static void verifyIntArray(int[] expected, int[] actual) {
+        if (Arrays.equals(expected, actual)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            totalFailed++;
+        }
+    }
+
+    protected static <T> void verifyArray(T[] expected, T[] actual) {
+        if (Arrays.equals(expected, actual)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            totalFailed++;
+        }
     }
 
 }

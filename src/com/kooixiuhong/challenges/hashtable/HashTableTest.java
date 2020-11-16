@@ -13,7 +13,7 @@ public class HashTableTest extends SolutionTest {
         Method[] methods = HashTableTest.class.getDeclaredMethods();
         HashTableTest t = new HashTableTest();
         for (Method method : methods) {
-            if (!method.getName().equals("run"))
+            if (method.getName().startsWith("test"))
                 method.invoke(t);
         }
 

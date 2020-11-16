@@ -14,7 +14,7 @@ public class GraphTest extends SolutionTest {
         Method[] methods = GraphTest.class.getDeclaredMethods();
         GraphTest at = new GraphTest();
         for (Method method : methods) {
-            if (!method.getName().equals("run"))
+            if (method.getName().startsWith("test"))
                 method.invoke(at);
         }
     }
@@ -25,25 +25,13 @@ public class GraphTest extends SolutionTest {
         int expected1 = 1;
         int actual1 = graphSolution.numberOfIslands(map1);
         System.out.print("test 1: ");
-        if (expected1 == actual1) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            totalFailed++;
-        }
+        verify(expected1, actual1);
 
         int[][] map2 = {{1, 1, 0, 0, 0}, {1, 1, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 1, 1}};
         int expected2 = 3;
         int actual2 = graphSolution.numberOfIslands(map2);
         System.out.print("test 2: ");
-        if (expected2 == actual2) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            totalFailed++;
-        }
+        verify(expected2, actual2);
 
     }
 

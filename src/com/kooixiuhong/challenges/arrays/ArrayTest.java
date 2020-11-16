@@ -6,7 +6,6 @@ import com.kooixiuhong.commons.SolutionTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArrayTest extends SolutionTest {
@@ -18,7 +17,7 @@ public class ArrayTest extends SolutionTest {
         Method[] methods = ArrayTest.class.getDeclaredMethods();
         ArrayTest at = new ArrayTest();
         for (Method method : methods) {
-            if (!method.getName().equals("run"))
+            if (method.getName().startsWith("test"))
                 method.invoke(at);
         }
     }
@@ -28,13 +27,7 @@ public class ArrayTest extends SolutionTest {
         int[] input = {1, 2, 3, 4, 5, 4};
         int expected = 4;
         System.out.print("test 1: ");
-        if (expected == solution.findADuplicateInArray(input)) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            totalFailed++;
-        }
+        verify(expected, solution.findADuplicateInArray(input));
         totalTests++;
         // Testing case with no duplicate
         System.out.print("test 2: ");
@@ -128,28 +121,18 @@ public class ArrayTest extends SolutionTest {
         int[] expected = {1, 4};
         System.out.print("test 1: ");
         int[] actual = solution.unsortedTwoSum(nums, k);
-        if (Arrays.equals(expected, actual)) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            printRed("expected: " + Arrays.toString(expected) + " got: " + Arrays.toString(actual));
-            totalFailed++;
-        }
+
+        verifyIntArray(expected, actual);
+
         totalTests++;
         // Testing case with no duplicate
         System.out.print("test 2: ");
         int[] test2 = {1, 9, 2, 8, 2};
         int k2 = 5;
         int[] expected2 = {-1, -1};
+        int[] actual2 = solution.unsortedTwoSum(test2, k2);
 
-        if (Arrays.equals(expected2, solution.unsortedTwoSum(test2, k2))) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            totalFailed++;
-        }
+        verifyIntArray(expected2, actual2);
 
         totalTests++;
     }
@@ -161,13 +144,7 @@ public class ArrayTest extends SolutionTest {
         int expected = 1915;
         int actual = solution.livingPeople(birth, death);
         System.out.print("test 1: ");
-        if (expected == actual) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            totalFailed++;
-        }
+        verify(expected, actual);
     }
 
     private static void testSubSort() {
@@ -177,42 +154,21 @@ public class ArrayTest extends SolutionTest {
 
         int[] actual1 = solution.subSortArray(arr1);
         System.out.print("test 1: ");
-        if (Arrays.equals(ex1, actual1)) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + Arrays.toString(ex1) + " got: " + Arrays.toString(actual1));
-            totalFailed++;
-        }
+        verifyIntArray(ex1, actual1);
 
         int[] arr2 = {1,2,3,4,10,11,7,12,6,15,16,18,19};
         int[] ex2 = {4,8};
 
         int[] actual2 = solution.subSortArray(arr2);
         System.out.print("test 2: ");
-        if (Arrays.equals(ex2, actual2)) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + Arrays.toString(ex2) + " got: " + Arrays.toString(actual2));
-            totalFailed++;
-        }
+        verifyIntArray(ex2, actual2);
 
         int[] arr3 = {1,2,3,4,5,6,7,8,19,15,16,17,9};
         int[] ex3 = {8,12};
 
         int[] actual3 = solution.subSortArray(arr3);
         System.out.print("test 3: ");
-        if (Arrays.equals(ex3, actual3)) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + Arrays.toString(ex2) + " got: " + Arrays.toString(actual2));
-            totalFailed++;
-        }
+        verifyIntArray(ex3, actual3);
 
     }
 
@@ -223,56 +179,28 @@ public class ArrayTest extends SolutionTest {
 
         int actual1 = solution.subArrayWithMaxSum(arr1);
         System.out.print("test 1: ");
-        if (ex1 == actual1) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + ex1 + " got: " + actual1);
-            totalFailed++;
-        }
+        verify(ex1, actual1);
 
         int[] arr2 = {-2,1,-3,4,-1,2,1,-5,4};
         int ex2 = 6;
 
         int actual2 = solution.subArrayWithMaxSum(arr2);
         System.out.print("test 2: ");
-        if (ex2 == actual2) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + ex2 + " got: " + actual2);
-            totalFailed++;
-        }
+        verify(ex2, actual2);
 
         int[] arr3 = {-1};
         int ex3 = -1;
 
         int actual3 = solution.subArrayWithMaxSum(arr3);
         System.out.print("test 3: ");
-        if (ex3 == actual3) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + ex3 + " got: " + actual3);
-            totalFailed++;
-        }
+        verify(ex3, actual3);
 
         int[] arr4 = {-2, -3, 4, -1, -2, 1, 5, -3};
         int ex4 = 7;
 
         int actual4 = solution.subArrayWithMaxSum(arr4);
         System.out.print("test 4: ");
-        if (ex4 == actual4) {
-            printGreen("passed");
-            totalPassed++;
-        } else {
-            printRed("failed");
-            System.out.println("expected: " + ex3 + " got: " + actual3);
-            totalFailed++;
-        }
+        verify(ex4, actual4);
     }
 
 
