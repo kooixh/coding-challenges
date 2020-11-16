@@ -3,6 +3,8 @@ package com.kooixiuhong.challenges.arrays;
 import com.kooixiuhong.challenges.arrays.extras.ListNode;
 import com.kooixiuhong.commons.SolutionTest;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,13 +13,14 @@ public class ArrayTest extends SolutionTest {
 
     private static ArraySolution solution = new ArraySolution();
 
-    public static void run() {
+    public static void run() throws InvocationTargetException, IllegalAccessException {
         System.out.println("Array tests");
-        testArrayDups();
-        testReturnLinkedList();
-        testUnsortedTwoSum();
-        testLivingPeople();
-        testSubSort();
+        Method[] methods = ArrayTest.class.getDeclaredMethods();
+        ArrayTest at = new ArrayTest();
+        for (Method method : methods) {
+            if (!method.getName().equals("run"))
+                method.invoke(at);
+        }
     }
 
     public static void testArrayDups() {
@@ -150,7 +153,6 @@ public class ArrayTest extends SolutionTest {
 
         totalTests++;
     }
-
 
     private static void testLivingPeople() {
         System.out.println("Running living people tests...");

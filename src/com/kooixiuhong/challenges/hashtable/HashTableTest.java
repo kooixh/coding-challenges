@@ -2,12 +2,20 @@ package com.kooixiuhong.challenges.hashtable;
 
 import com.kooixiuhong.commons.SolutionTest;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class HashTableTest extends SolutionTest {
 
     private static HashTableSolution hashTableSolution = new HashTableSolution();
-    public static void run() {
+    public static void run() throws InvocationTargetException, IllegalAccessException {
         System.out.println("HashTable tests");
-        testWordFrequency();
+        Method[] methods = HashTableTest.class.getDeclaredMethods();
+        HashTableTest t = new HashTableTest();
+        for (Method method : methods) {
+            if (!method.getName().equals("run"))
+                method.invoke(t);
+        }
 
     }
 

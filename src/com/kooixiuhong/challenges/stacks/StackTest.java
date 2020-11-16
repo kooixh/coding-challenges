@@ -1,18 +1,26 @@
 package com.kooixiuhong.challenges.stacks;
 
+import com.kooixiuhong.challenges.arrays.ArrayTest;
 import com.kooixiuhong.commons.SolutionTest;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Stack;
 
 public class StackTest extends SolutionTest {
 
     private static StackSolution solution = new StackSolution();
 
-    public static void run() {
+    public static void run() throws InvocationTargetException, IllegalAccessException {
         System.out.println("Stacks tests");
-        testQuestionOne();
+        Method[] methods = StackTest.class.getDeclaredMethods();
+        StackTest t = new StackTest();
+        for (Method method : methods) {
+            if (!method.getName().equals("run"))
+                method.invoke(t);
+        }
     }
-    public static void testQuestionOne() {
+    public static void testSumOfStack() {
         System.out.println("Running sum of stack tests...");
         Stack<Integer> stack = new Stack<>();
         stack.push(10);

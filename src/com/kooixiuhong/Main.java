@@ -7,9 +7,11 @@ import com.kooixiuhong.challenges.hashtable.HashTableTest;
 import com.kooixiuhong.challenges.stacks.StackTest;
 import com.kooixiuhong.commons.TestAggregator;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         int returnCode = 0;
 	    // TODO setup automated testing
         ArrayTest.run();

@@ -3,6 +3,8 @@ package com.kooixiuhong.challenges.graphs.trees;
 import com.kooixiuhong.challenges.graphs.trees.extras.BinaryTreeNode;
 import com.kooixiuhong.commons.SolutionTest;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,9 +14,14 @@ public class TreeTest extends SolutionTest {
 
     private static TreeSolution treeSolution = new TreeSolution();
 
-    public static void run() {
+    public static void run() throws InvocationTargetException, IllegalAccessException {
         System.out.println("Tree tests");
-        testLevelOrderTraversal();
+        Method[] methods = TreeTest.class.getDeclaredMethods();
+        TreeTest tt = new TreeTest();
+        for (Method method : methods) {
+            if (!method.getName().equals("run"))
+                method.invoke(tt);
+        }
 
     }
 

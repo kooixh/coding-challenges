@@ -2,13 +2,21 @@ package com.kooixiuhong.challenges.graphs;
 
 import com.kooixiuhong.commons.SolutionTest;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class GraphTest extends SolutionTest {
 
     private static GraphSolution graphSolution = new GraphSolution();
 
-    public static void run() {
+    public static void run() throws InvocationTargetException, IllegalAccessException {
         System.out.println("Graph tests");
-        testNumberOfIsland();
+        Method[] methods = GraphTest.class.getDeclaredMethods();
+        GraphTest at = new GraphTest();
+        for (Method method : methods) {
+            if (!method.getName().equals("run"))
+                method.invoke(at);
+        }
     }
 
 
