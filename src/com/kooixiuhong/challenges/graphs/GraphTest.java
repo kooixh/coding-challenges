@@ -35,5 +35,23 @@ public class GraphTest extends SolutionTest {
 
     }
 
+    static void testUniquePaths() {
+        int ex1M = 7;
+        int ex1N = 3;
+
+        int ex1 = 28;
+        int actual = graphSolution.numberOfUniquePaths(ex1M, ex1N);
+        System.out.print("test 1: ");
+        verify(ex1, actual);
+
+        int ex2M = 3;
+        int ex2N = 3;
+
+        int ex2 = 6;
+        int actual2 = graphSolution.numberOfUniquePaths(ex2M, ex2N);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+    }
+
 
 }

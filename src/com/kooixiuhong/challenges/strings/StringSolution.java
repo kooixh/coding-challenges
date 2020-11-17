@@ -2,7 +2,16 @@ package com.kooixiuhong.challenges.strings;
 
 public class StringSolution {
 
-
+    /**
+     *
+     * Given two strings text1 and text2, return the length of their longest common subsequence.
+     *
+     * Ref: https://leetcode.com/problems/longest-common-subsequence/
+     *
+     * @param s1
+     * @param s2
+     * @return
+     */
     public int longestCommonSubString(String s1, String s2) {
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
         for (int i = s1.length() - 1; i >= 0; i--) {
