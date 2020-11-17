@@ -18,8 +18,8 @@ public abstract class SolutionTest {
         System.out.println(ANSI_RED + str + ANSI_RESET);
     }
 
-    protected static void printResult(String testName) {
-        System.out.println("Completed " + testName + " test, total " + totalTests + " tests.");
+    protected static void printResult() {
+        System.out.println("Completed all tests, total " + (totalPassed + totalFailed) + " tests.");
         printGreen(totalPassed + " passed");
         printRed(totalFailed + " failed");
     }
@@ -31,6 +31,7 @@ public abstract class SolutionTest {
             totalPassed++;
         } else {
             printRed("failed");
+            printRed("expected: " + expected.toString() + " got: " + actual.toString());
             totalFailed++;
         }
     }

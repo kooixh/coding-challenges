@@ -7,7 +7,7 @@ package com.kooixiuhong.commons;
  */
 public class TestAggregator extends SolutionTest {
     public static int aggregate() {
-        printResult("all solutions");
+        printResult();
         return (totalFailed > 0) ? 1 : 0;
     }
 }

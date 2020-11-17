@@ -5,6 +5,7 @@ import com.kooixiuhong.challenges.graphs.GraphTest;
 import com.kooixiuhong.challenges.graphs.trees.TreeTest;
 import com.kooixiuhong.challenges.hashtable.HashTableTest;
 import com.kooixiuhong.challenges.stacks.StackTest;
+import com.kooixiuhong.challenges.strings.StringTest;
 import com.kooixiuhong.commons.TestAggregator;
 
 import java.lang.reflect.InvocationTargetException;
@@ -19,6 +20,7 @@ public class Main {
         HashTableTest.run();
         TreeTest.run();
         GraphTest.run();
+        StringTest.run();
         returnCode = TestAggregator.aggregate();
         System.exit(returnCode);
     }
