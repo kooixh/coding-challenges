@@ -4,6 +4,7 @@ import com.kooixiuhong.commons.SolutionTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 public class GraphTest extends SolutionTest {
 
@@ -51,6 +52,17 @@ public class GraphTest extends SolutionTest {
         int actual2 = graphSolution.numberOfUniquePaths(ex2M, ex2N);
         System.out.print("test 2: ");
         verify(ex2, actual2);
+    }
+
+    static void testWallsAndGates() {
+        System.out.println("Running Gates and Wall tests");
+        int[][] g1 = {{2147483647,-1,0,2147483647}, {2147483647,2147483647,2147483647,-1},{2147483647,-1,2147483647,-1}, {0,-1,2147483647,2147483647}};
+        int[][] ex1 = {{3,-1,0,1}, {2,2,1,-1},{1,-1,2,-1}, {0,-1,3,4}};
+
+        int[][] actual = graphSolution.gatesAndWall(g1);
+
+        System.out.print("test 1: ");
+        verify2DArray(ex1, actual);
     }
 
 

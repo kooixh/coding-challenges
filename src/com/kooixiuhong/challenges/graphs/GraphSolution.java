@@ -1,5 +1,10 @@
 package com.kooixiuhong.challenges.graphs;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class GraphSolution {
 
     /**
@@ -69,6 +74,57 @@ public class GraphSolution {
         }
 
         return dp[m - 1][n - 1];
+    }
+
+
+    private List<int[]> DIRECTIONS = Arrays.asList(
+            new int[] { 1,  0},
+            new int[] {-1,  0},
+            new int[] { 0,  1},
+            new int[] { 0, -1});
+    /**
+     *
+     * You are given a m x n 2D grid initialized with these three possible values.
+     *
+     * -1 - A wall or an obstacle.
+     * 0 - A gate.
+     * INF - Infinity means an empty room. We use the value 231 - 1 = 2147483647 to represent
+     * INF as you may assume that the distance to a gate is less than 2147483647.
+     * Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, it should be filled with INF.
+     *
+     * Ref: https://leetcode.com/problems/walls-and-gates/
+     *
+     * @return
+     */
+    public int[][] gatesAndWall(int[][] graph) {
+
+
+        Queue<int[]> q = new LinkedList<>();
+        for (int i = 0; i < graph.length; i++) {
+            for (int j = 0; j < graph[i].length; j++) {
+                if (graph[i][j] == 0) {
+                    q.offer(new int[]{i, j});
+                }
+            }
+        }
+
+        while (!q.isEmpty()) {
+            int[] p = q.poll();
+            for (int[] next : DIRECTIONS) {
+                int r = p[0] + next[0];
+                int c = p[1] + next[1];
+
+                if (r < 0 || c < 0 || r >= graph.length || c >= graph[r].length || graph[r][c] != Integer.MAX_VALUE)
+                    continue;
+
+                graph[r][c] = graph[p[0]][p[1]] + 1;
+                q.offer(new int[]{r, c});
+            }
+
+        }
+
+
+        return graph;
     }
 
 

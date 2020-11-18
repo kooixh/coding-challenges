@@ -46,8 +46,20 @@ public abstract class SolutionTest {
         }
     }
 
-    protected static <T> void verifyArray(T[] expected, T[] actual) {
-        if (Arrays.equals(expected, actual)) {
+    protected static void verify2DArray(int[][] expected, int[][] actual) {
+
+        boolean same = true;
+        for (int i = 0; i < expected.length; i++) {
+            for (int j = 0; j < expected[i].length; j ++) {
+                if (expected[i][j] != actual[i][j]) {
+                    same = false;
+                    break;
+                }
+            }
+            if (!same) break;
+        }
+
+        if (same) {
             printGreen("passed");
             totalPassed++;
         } else {
