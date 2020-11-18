@@ -6,6 +6,8 @@ import com.kooixiuhong.commons.SolutionTest;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayTest extends SolutionTest {
@@ -201,6 +203,22 @@ public class ArrayTest extends SolutionTest {
         int actual4 = solution.subArrayWithMaxSum(arr4);
         System.out.print("test 4: ");
         verify(ex4, actual4);
+    }
+
+
+    static void testCombinationSum() {
+        System.out.println("Running sub array max sum tests...");
+
+        int[] in1 = {2,3,6,7};
+        int in1Target =7;
+        List<List<Integer>> ex1 = new ArrayList<>();
+        ex1.add(Arrays.asList(2,2,3));
+        ex1.add(Collections.singletonList(7));
+
+        List<List<Integer>> actual1 = solution.findCombinationSum(in1, in1Target);
+        System.out.print("test 1: ");
+        verifyListContainsAll(ex1, actual1);
+
     }
 
 

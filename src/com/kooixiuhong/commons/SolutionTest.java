@@ -1,6 +1,7 @@
 package com.kooixiuhong.commons;
 
 import java.util.Arrays;
+import java.util.List;
 
 public abstract class SolutionTest {
     protected static final String ANSI_RED = "\u001B[31m";
@@ -60,6 +61,16 @@ public abstract class SolutionTest {
         }
 
         if (same) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            totalFailed++;
+        }
+    }
+
+    protected static <T> void verifyListContainsAll(List<T> expected, List<T> actual) {
+        if (expected.containsAll(actual)) {
             printGreen("passed");
             totalPassed++;
         } else {

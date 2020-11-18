@@ -2,8 +2,10 @@ package com.kooixiuhong.challenges.arrays;
 
 import com.kooixiuhong.challenges.arrays.extras.ListNode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -169,6 +171,40 @@ public class ArraySolution {
             sum = Math.max(sum, current);
         }
         return sum;
+    }
+
+
+    /**
+     *
+     * Given an array of distinct integers candidates and a target integer target,
+     * return a list of all unique combinations of candidates where the chosen numbers sum to target.
+     *
+     * Ref: https://leetcode.com/problems/combination-sum/
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public List<List<Integer>> findCombinationSum(int[] nums, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        searchCombinationSum(nums, 0, 0, target, ans, new ArrayList<>());
+        return ans;
+    }
+
+    private void searchCombinationSum(int[] nums, int i, int sum, int target, List<List<Integer>> ans, List<Integer> current) {
+        if (sum == target) {
+            ans.add(current);
+            return;
+        }
+        if (sum > target || i >= nums.length) {
+            return;
+        }
+
+        List<Integer> temp = new ArrayList<>(current);
+        searchCombinationSum(nums, i + 1, sum, target, ans, temp);
+        current.add(nums[i]);
+        searchCombinationSum(nums, i, sum + nums[i], target, ans, current);
+
     }
 
 }
