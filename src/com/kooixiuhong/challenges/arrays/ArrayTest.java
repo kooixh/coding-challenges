@@ -221,5 +221,26 @@ public class ArrayTest extends SolutionTest {
 
     }
 
+    static void testMinSubArraySumS() {
+        System.out.println("Running min sub array s tests...");
+        int[] arr1 = {2,3,1,2,4,3};
+        int s1 = 7;
+        int ex1 = 2;
+
+        int actual1 = solution.subArraySumLessThanN(arr1, s1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {1,2,1,2,10,3};
+        int s2 = 18;
+        int ex2 = 5;
+
+
+        int actual2 = solution.subArraySumLessThanN(arr2, s2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+    }
+
 
 }

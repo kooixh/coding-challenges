@@ -207,4 +207,28 @@ public class ArraySolution {
 
     }
 
+    /**
+     *
+     * Given an array of n positive integers and a positive integer s,
+     * find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
+     *
+     * Ref: https://leetcode.com/problems/minimum-size-subarray-sum/
+     *
+     * @return
+     */
+    public int subArraySumLessThanN(int[] nums, int s) {
+        int minLen = Integer.MAX_VALUE;
+        int left = 0;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            while (sum >= s) {
+                minLen = Math.min(minLen, i - left + 1);
+                sum -= nums[left];
+                left++;
+            }
+        }
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
+    }
+
 }
