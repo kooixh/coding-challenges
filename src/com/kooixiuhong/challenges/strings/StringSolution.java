@@ -1,5 +1,8 @@
 package com.kooixiuhong.challenges.strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class StringSolution {
 
     /**
@@ -24,5 +27,32 @@ public class StringSolution {
             }
         }
         return dp[0][0];
+    }
+
+    /**
+     *
+     *
+     * Given a string, find the length of the longest substring T that contains at most k distinct characters.
+     *
+     *
+     * @param s
+     * @param k
+     * @return
+     */
+    public int longestSubstringKDistinct(String s, int k) {
+        int maxLen = 0;
+        Map<Character, Integer> charCount = new HashMap<>();
+        int left = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            charCount.put(c, charCount.getOrDefault(c, 0 ) + 1);
+            while (charCount.size() > k) {
+                charCount.put(s.charAt(left), charCount.get(s.charAt(left)) - 1);
+                if (charCount.get(s.charAt(left)) == 0) charCount.remove(s.charAt(left));
+                left++;
+            }
+            maxLen = Math.max(maxLen, i - left + 1);
+        }
+        return maxLen;
     }
 }

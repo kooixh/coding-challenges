@@ -57,6 +57,33 @@ public class StringTest extends SolutionTest {
 
     }
 
+    static void testLongestCommonSubstringKDistinct() {
+        System.out.println("Running longest common substring k distinct tests");
+
+
+        String input1 = "eceba";
+        int input1K = 2;
+        int ex1 = 3;
+        int actual = stringSolution.longestSubstringKDistinct(input1, input1K);
+        System.out.print("test 1: ");
+        verify(ex1, actual);
+
+        String input2 = "aa";
+        int input2K = 1;
+        int ex2 = 2;
+        int actual2 = stringSolution.longestSubstringKDistinct(input2, input2K);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+
+        String input3 = "sdfskfndsnjsdhfejsfn";
+        int input3K = 4;
+        int ex3 = 7;
+        int actual3 = stringSolution.longestSubstringKDistinct(input3, input3K);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+    }
+
 
 
 }
