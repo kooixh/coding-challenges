@@ -8,7 +8,6 @@ public abstract class SolutionTest {
     protected static final String ANSI_RESET = "\u001B[0m";
     protected static final String ANSI_GREEN = "\u001B[32m";
 
-    protected static int totalTests = 0;
     protected static int totalFailed = 0;
     protected static int totalPassed = 0;
 

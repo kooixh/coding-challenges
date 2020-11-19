@@ -36,7 +36,6 @@ public class StackTest extends SolutionTest {
             printRed("failed");
             totalFailed++;
         }
-        totalTests++;
         //second test
         Stack<Integer> stack1 = new Stack<>();
         stack1.push(12);
@@ -53,6 +52,5 @@ public class StackTest extends SolutionTest {
             printRed("failed");
             totalFailed++;
         }
-        totalTests++;
     }
 }

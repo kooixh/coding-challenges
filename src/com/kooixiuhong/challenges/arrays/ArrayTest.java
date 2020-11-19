@@ -30,7 +30,6 @@ public class ArrayTest extends SolutionTest {
         int expected = 4;
         System.out.print("test 1: ");
         verify(expected, solution.findADuplicateInArray(input));
-        totalTests++;
         // Testing case with no duplicate
         System.out.print("test 2: ");
         int input2[] = {1, 2, 3, 4,5};
@@ -42,7 +41,6 @@ public class ArrayTest extends SolutionTest {
             printGreen("passed");
             totalPassed++;
         }
-        totalTests++;
     }
 
     public static void testReturnLinkedList() {
@@ -79,7 +77,6 @@ public class ArrayTest extends SolutionTest {
             totalFailed++;
             printRed("failed");
         }
-        totalTests++;
 
         int[] input2 = {4, 6, 7, 8, 10};
         System.out.print("test 2: ");
@@ -113,7 +110,6 @@ public class ArrayTest extends SolutionTest {
             totalFailed++;
             printRed("failed");
         }
-        totalTests++;
     }
 
     public static void testUnsortedTwoSum() {
@@ -126,7 +122,6 @@ public class ArrayTest extends SolutionTest {
 
         verifyIntArray(expected, actual);
 
-        totalTests++;
         // Testing case with no duplicate
         System.out.print("test 2: ");
         int[] test2 = {1, 9, 2, 8, 2};
@@ -136,7 +131,6 @@ public class ArrayTest extends SolutionTest {
 
         verifyIntArray(expected2, actual2);
 
-        totalTests++;
     }
 
     private static void testLivingPeople() {
