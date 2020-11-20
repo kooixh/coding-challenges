@@ -1,6 +1,8 @@
 package com.kooixiuhong.challenges.strings;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StringSolution {
@@ -55,4 +57,34 @@ public class StringSolution {
         }
         return maxLen;
     }
+
+
+    /**
+     *
+     * A string S of lowercase English letters is given.
+     * We want to partition this string into as many parts as possible so that each letter appears in at most one part,
+     * and return a list of integers representing the size of these parts.
+     *
+     * @return
+     */
+    public List<Integer> partitionString(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            map.put(s.charAt(i), i);
+        }
+        List<Integer> ans = new ArrayList<>();
+        int j = 0;
+        int anc = 0;
+        for (int i = 0; i < s.length(); i++) {
+            j = Math.max(map.get(s.charAt(i)), j);
+            if (j == i) {
+                ans.add(j - anc + 1);
+                anc = i + 1;
+            }
+        }
+        return ans;
+
+    }
+
+
 }

@@ -4,6 +4,8 @@ import com.kooixiuhong.commons.SolutionTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 public class StringTest extends SolutionTest {
 
@@ -82,6 +84,23 @@ public class StringTest extends SolutionTest {
         int actual3 = stringSolution.longestSubstringKDistinct(input3, input3K);
         System.out.print("test 3: ");
         verify(ex3, actual3);
+    }
+
+    static void testStringPartition() {
+        System.out.println("Running String Partition tests");
+
+        String input1 = "ababcbacadefegdehijhklij";
+        List<Integer> ex1 = Arrays.asList(9, 7, 8);
+        List<Integer> actual = stringSolution.partitionString(input1);
+        System.out.print("test 1: ");
+        verify(ex1, actual);
+
+        String input2 = "tjqwdwqdqhsfhndsf";
+        List<Integer> ex2 = Arrays.asList(1, 1, 15);
+        List<Integer> actual2 = stringSolution.partitionString(input2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
     }
 
 
