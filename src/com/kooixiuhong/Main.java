@@ -4,6 +4,7 @@ import com.kooixiuhong.challenges.arrays.ArrayTest;
 import com.kooixiuhong.challenges.graphs.GraphTest;
 import com.kooixiuhong.challenges.graphs.trees.TreeTest;
 import com.kooixiuhong.challenges.hashtable.HashTableTest;
+import com.kooixiuhong.challenges.heaps.HeapTest;
 import com.kooixiuhong.challenges.stacks.StackTest;
 import com.kooixiuhong.challenges.strings.StringTest;
 import com.kooixiuhong.commons.TestAggregator;
@@ -21,6 +22,7 @@ public class Main {
         TreeTest.run();
         GraphTest.run();
         StringTest.run();
+        HeapTest.run();
         returnCode = TestAggregator.aggregate();
         System.exit(returnCode);
     }
