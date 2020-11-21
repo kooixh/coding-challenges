@@ -103,6 +103,29 @@ public class StringTest extends SolutionTest {
 
     }
 
+    static void testLongestSubstringNoRepeating() {
+        System.out.println("Running longest substring without repeating tests");
+
+        String input1 = "abcabcbb";
+        int ex1 = 3;
+        int actual = stringSolution.longestSubStringWithoutRepeatingCharacter(input1);
+        System.out.print("test 1: ");
+        verify(ex1, actual);
+
+        String input2 = "bbbbb";
+        int ex2 = 1;
+        int actual2 = stringSolution.longestSubStringWithoutRepeatingCharacter(input2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+
+        String input3 = "pwwkew";
+        int ex3 = 3;
+        int actual3 = stringSolution.longestSubStringWithoutRepeatingCharacter(input3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+    }
+
 
 
 }

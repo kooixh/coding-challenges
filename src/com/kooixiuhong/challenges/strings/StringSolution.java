@@ -2,8 +2,10 @@ package com.kooixiuhong.challenges.strings;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class StringSolution {
 
@@ -84,6 +86,31 @@ public class StringSolution {
         }
         return ans;
 
+    }
+
+    /**
+     *
+     * Given a string s, find the length of the longest substring without repeating characters.
+     *
+     * @param s
+     * @return
+     */
+    public int longestSubStringWithoutRepeatingCharacter(String s) {
+        int i = 0;
+        int j = 0;
+        Set<Character> seen = new HashSet<>();
+        int longest = 0;
+        while (i < s.length() && j < s.length()) {
+            if (!seen.contains(s.charAt(j))) {
+                longest = Math.max(longest, j - i + 1);
+                seen.add(s.charAt(j));
+                j++;
+            } else {
+                seen.remove(s.charAt(i));
+                i++;
+            }
+        }
+        return longest;
     }
 
 
