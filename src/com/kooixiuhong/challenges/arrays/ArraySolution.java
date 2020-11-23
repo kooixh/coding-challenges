@@ -231,4 +231,37 @@ public class ArraySolution {
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 
+
+    public int findFirstMissingPositive(int[] arr) {
+
+        boolean foundOne = false;
+        for (int value : arr) {
+            if (value == 1) {
+                foundOne = true;
+                break;
+            }
+        }
+
+        if (!foundOne) return 1;
+        if (arr.length == 1) return 2;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] <= 0 || arr[i] > arr.length) {
+                arr[i] = 1;
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            int idx = Math.abs(arr[i]);
+            if (arr[idx - 1] > 0) {
+                arr[idx - 1] = - arr[idx - 1];
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 0) return i + 1;
+        }
+        return arr.length + 1;
+
+    }
+
 }

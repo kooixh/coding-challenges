@@ -237,4 +237,24 @@ public class ArrayTest extends SolutionTest {
     }
 
 
+    public static void testMissingPositive() {
+        System.out.println("Running missing positive tests...");
+        int[] input = {1,2,0};
+        int expected = 3;
+        System.out.print("test 1: ");
+        verify(expected, solution.findFirstMissingPositive(input));
+
+
+        int[] input2 = {3,4,-1,1};
+        int expected2 = 2;
+        System.out.print("test 2: ");
+        verify(expected2, solution.findFirstMissingPositive(input2));
+
+        int[] input3 = {7,8,9,11,12};
+        int expected3 = 1;
+        System.out.print("test 3: ");
+        verify(expected3, solution.findFirstMissingPositive(input3));
+    }
+
+
 }
