@@ -231,7 +231,15 @@ public class ArraySolution {
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
 
-
+    /**
+     *
+     *
+     * Given an unsorted integer array nums, find the smallest missing positive integer.
+     *
+     *
+     * @param arr
+     * @return
+     */
     public int findFirstMissingPositive(int[] arr) {
 
         boolean foundOne = false;
