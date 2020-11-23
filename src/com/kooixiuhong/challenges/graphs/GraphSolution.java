@@ -1,8 +1,10 @@
 package com.kooixiuhong.challenges.graphs;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 public class GraphSolution {
@@ -125,6 +127,39 @@ public class GraphSolution {
 
 
         return graph;
+    }
+
+
+    public int[] courseSchedule(int k, int[][] prerequisites) {
+        List<Integer>[] adjList = new List[k];
+        int[] indeg = new int[k];
+        for (int i = 0; i < k; i++) {
+            adjList[i] = new ArrayList<>();
+        }
+        for (int[] preq : prerequisites) {
+            adjList[preq[1]].add(preq[0]);
+            indeg[preq[0]]++;
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < k; i++) {
+            if (indeg[i] == 0) q.offer(i);
+        }
+        int[] sorted = new int[k];
+        int i = 0;
+        while (!q.isEmpty()) {
+            int c = q.poll();
+            sorted[i] = c;
+            for (int next : adjList[c]) {
+                indeg[next]--;
+                if (indeg[next] == 0) {
+                    q.offer(next);
+                }
+            }
+            i++;
+        }
+        return (i == k) ? sorted : new int[0];
+
     }
 
 

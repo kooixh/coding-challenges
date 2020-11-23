@@ -65,5 +65,31 @@ public class GraphTest extends SolutionTest {
         verify2DArray(ex1, actual);
     }
 
+    static void testCourseSchedule() {
+        System.out.println("Running course schedule tests");
+        int[][] map1 = {{1,0},{2,0},{3,1},{3,2}};
+        int k1 = 4;
+        int[] expected1 = {0,2,1,3};
+        int[] expected1Alt = {0,1,2,3};
+        int[] actual1 = graphSolution.courseSchedule(k1, map1);
+        System.out.print("test 1: ");
+        verifyIntArrayMulti(expected1, expected1Alt, actual1);
+
+        int[][] map2 = {{1,0}};
+        int k2 = 2;
+        int[] expected2 = {0,1};
+        int[] actual2 = graphSolution.courseSchedule(k2, map2);
+        System.out.print("test 2: ");
+        verifyIntArray(expected2, actual2);
+
+        int[][] map3 = {{1,0}, {0,1}};
+        int k3 = 2;
+        int[] expected3 = {};
+        int[] actual3 = graphSolution.courseSchedule(k3, map3);
+        System.out.print("test 3: ");
+        verifyIntArray(expected3, actual3);
+
+    }
+
 
 }

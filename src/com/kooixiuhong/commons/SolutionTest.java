@@ -42,6 +42,18 @@ public abstract class SolutionTest {
             totalPassed++;
         } else {
             printRed("failed");
+            printRed("expected: " + Arrays.toString(expected) + " got: " + Arrays.toString(actual));
+            totalFailed++;
+        }
+    }
+
+    protected static void verifyIntArrayMulti(int[] expected, int[] expectedAlt, int[] actual) {
+        if (Arrays.equals(expected, actual) || Arrays.equals(expectedAlt, actual)) {
+            printGreen("passed");
+            totalPassed++;
+        } else {
+            printRed("failed");
+            printRed("expected: " + Arrays.toString(expected) + " got: " + Arrays.toString(actual));
             totalFailed++;
         }
     }
