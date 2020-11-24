@@ -19,7 +19,7 @@ public class StringSolution {
      * @param s2
      * @return
      */
-    public int longestCommonSubString(String s1, String s2) {
+    public int longestCommonSubSequence(String s1, String s2) {
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
         for (int i = s1.length() - 1; i >= 0; i--) {
             for (int j = s2.length() - 1; j >= 0; j--) {
@@ -108,6 +108,32 @@ public class StringSolution {
             } else {
                 seen.remove(s.charAt(i));
                 i++;
+            }
+        }
+        return longest;
+    }
+
+
+    /**
+     *
+     *
+     * Find the longest substring in s1 and s2
+     *
+     * @param s1
+     * @param s2
+     * @return
+     */
+    public int longestCommonSubString(String s1, String s2) {
+        int[][] dp = new int[s1.length() + 1][s2.length() + 1];
+        int longest = 0;
+        for (int i = s1.length() - 1; i >= 0; i--) {
+            for (int j = s2.length() - 1; j >= 0; j--) {
+                if (s1.charAt(i) == s2.charAt(j)) {
+                    dp[i][j] = dp[i + 1][j + 1] + 1;
+                    if (dp[i][j] > longest) {
+                        longest = dp[i][j];
+                    }
+                }
             }
         }
         return longest;
