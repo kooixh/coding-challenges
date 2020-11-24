@@ -26,6 +26,18 @@ public class HashTableSolution {
         return wordMap.getOrDefault(word, 0);
     }
 
+    /**
+     *
+     *
+     * Given a non-empty list of words, return the k most frequent elements.
+     *
+     * Your answer should be sorted by frequency from highest to lowest.
+     * If two words have the same frequency, then the word with the lower alphabetical order comes first.
+     *
+     * @param words
+     * @param k
+     * @return
+     */
     public List<String> topKFrequentWords(String[] words, int k) {
         Map<String, Integer> map = new HashMap<>();
         for (String w : words) {
@@ -46,9 +58,10 @@ public class HashTableSolution {
         }
         return ans;
 
-
-
     }
+
+
+
 
 
 

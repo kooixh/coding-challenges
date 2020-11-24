@@ -32,4 +32,20 @@ public class HeapTest extends SolutionTest {
         verify2DArray(ex1, actual1);
     }
 
+    static void testMeetingRooms() {
+        System.out.println("Running meeting rooms tests");
+
+        int[][] points1 = {{0, 30}, {5, 10}, {15, 20}};
+        int ex1 = 2;
+        int actual1 = heapSolution.meetingRoom(points1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[][] points2 = {{7, 10}, {2, 4}};
+        int ex2 = 1;
+        int actual2 = heapSolution.meetingRoom(points2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+    }
+
 }
