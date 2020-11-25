@@ -79,4 +79,39 @@ public class TreeTest extends SolutionTest {
         verify(expected2, actual2);
     }
 
+
+    private static void testMaximumTreeDepth() {
+        System.out.println("Running maximum tree width tests...");
+        BinaryTreeNode root = new BinaryTreeNode(10);
+        root.left = new BinaryTreeNode(5);
+        root.right = new BinaryTreeNode(6);
+
+        root.left.left = new BinaryTreeNode(7);
+        root.left.right = new BinaryTreeNode(4);
+        root.right.right = new BinaryTreeNode(1);
+
+        int expected1 = 3;
+
+        int actual1 = treeSolution.maxDepth(root);
+        System.out.print("test 1: ");
+        verify(expected1, actual1);
+
+        BinaryTreeNode root2 = new BinaryTreeNode(10);
+        root2.left = new BinaryTreeNode(5);
+        root2.right = new BinaryTreeNode(6);
+
+        root2.left.left = new BinaryTreeNode(7);
+        root2.left.left.left = new BinaryTreeNode(4);
+
+        root2.right.right = new BinaryTreeNode(1);
+
+        int expected2 = 4;
+
+        int actual2 = treeSolution.maxTreeWidth(root2);
+        System.out.print("test 2: ");
+        verify(expected2, actual2);
+    }
+
+
+
 }

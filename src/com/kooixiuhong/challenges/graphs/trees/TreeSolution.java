@@ -43,6 +43,20 @@ public class TreeSolution {
 
     }
 
+    /**
+     *
+     *
+     * Given a binary tree, write a function to get the maximum width of the given tree. The maximum width of a tree is
+     * the maximum width among all levels.
+     *
+     * The width of one level is defined as the length between the end-nodes
+     * (the leftmost and right most non-null nodes in the level, where the null nodes between the end-nodes
+     * are also counted into the length calculation.
+     *
+     *
+     * @param root
+     * @return
+     */
     public int maxTreeWidth(BinaryTreeNode root) {
         Queue<Pair<BinaryTreeNode, Integer>> q = new LinkedList<>();
         q.offer(new Pair<>(root, 0));
@@ -62,6 +76,21 @@ public class TreeSolution {
             maxWidth = Math.max(maxWidth, tail.getValue() - head.getValue() + 1);
         }
         return maxWidth;
+    }
+
+
+    /**
+     *
+     * Given a binary tree, find its maximum depth.
+     *
+     * The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+     *
+     * @param root
+     * @return
+     */
+    public int maxDepth(BinaryTreeNode root) {
+        if (root == null) return 0;
+        return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
     }
 
 }
