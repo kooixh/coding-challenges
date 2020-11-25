@@ -256,5 +256,63 @@ public class ArrayTest extends SolutionTest {
         verify(expected3, solution.findFirstMissingPositive(input3));
     }
 
+    public static void testMergeLinkedList() {
+        System.out.println("Running merge linked list tests...");
+
+        System.out.print("test 1: ");
+        ListNode list1 = new ListNode(1); // head of the list
+        list1.next = new ListNode(2);
+        list1.next.next = new ListNode(3);
+
+        ListNode list2 = new ListNode(2); // head of the list
+        list2.next = new ListNode(5);
+        list2.next.next = new ListNode(6);
+
+        int[] expected = {1,2,2,3,5,6};
+        ListNode actual = solution.mergeList(list1, list2);
+        boolean isPassed = true;
+        for (int i : expected) {
+            if (actual == null || actual.value != i) {
+                isPassed = false;
+                break;
+            }
+            actual = actual.next;
+        }
+        if (isPassed) {
+            totalPassed++;
+            printGreen("passed");
+        } else {
+            totalFailed++;
+            printRed("failed");
+        }
+
+        System.out.print("test 2: ");
+        ListNode list21 = new ListNode(4); // head of the list
+        list21.next = new ListNode(5);
+        list21.next.next = new ListNode(6);
+
+        ListNode list22 = new ListNode(2); // head of the list
+
+        int[] expected2 = {2,4,5,6};
+        ListNode actual2 = solution.mergeList(list21, list22);
+        boolean isPassed2 = true;
+        for (int i : expected2) {
+            if (actual2 == null || actual2.value != i) {
+                isPassed2 = false;
+                break;
+            }
+            actual2 = actual2.next;
+        }
+        if (isPassed2) {
+            totalPassed++;
+            printGreen("passed");
+        } else {
+            totalFailed++;
+            printRed("failed");
+        }
+
+
+    }
+
 
 }

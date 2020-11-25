@@ -272,4 +272,34 @@ public class ArraySolution {
 
     }
 
+    /**
+     *
+     * Given two sorted linked list merge it into one
+     *
+     * @param m
+     * @param n
+     * @return
+     */
+    public ListNode mergeList(ListNode m, ListNode n) {
+        ListNode temp = new ListNode();
+        ListNode c = temp;
+        while (m != null && n != null) {
+            if (m.value > n.value) {
+                c.next = new ListNode(n.value);
+                n = n.next;
+            } else {
+                c.next = new ListNode(m.value);
+                m = m.next;
+            }
+            c = c.next;
+        }
+        if (m != null) {
+            c.next = m;
+        }
+        if (n != null) {
+            c.next = n;
+        }
+        return temp.next;
+    }
+
 }

@@ -7,4 +7,11 @@ package com.kooixiuhong.challenges.arrays.extras;
 public class ListNode {
     public int value;
     public ListNode next;
+
+    public ListNode() {
+        this.value = 0;
+    }
+    public ListNode(int v) {
+        this.value = v;
+    }
 }
