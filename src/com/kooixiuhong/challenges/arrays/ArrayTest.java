@@ -344,5 +344,36 @@ public class ArrayTest extends SolutionTest {
         verify(ex4, actual4);
     }
 
+    static void testMostContainerWater() {
+        System.out.println("Running trapping rain water tests...");
+        int[] arr1 = {1,8,6,2,5,4,8,3,7};
+        int ex1 = 49;
+
+        int actual1 = solution.containerMostWater(arr1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {4,2,0,3,2,5};
+        int ex2 = 20;
+
+        int actual2 = solution.containerMostWater(arr2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+        int[] arr3 = {4,3,2,1,4};
+        int ex3 = 16;
+
+        int actual3 = solution.containerMostWater(arr3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+
+        int[] arr4 = {1,2,1};
+        int ex4 = 2;
+
+        int actual4 = solution.containerMostWater(arr4);
+        System.out.print("test 4: ");
+        verify(ex4, actual4);
+    }
+
 
 }
