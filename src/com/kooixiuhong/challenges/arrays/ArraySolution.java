@@ -3,6 +3,7 @@ package com.kooixiuhong.challenges.arrays;
 import com.kooixiuhong.challenges.arrays.extras.ListNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -300,6 +301,36 @@ public class ArraySolution {
             c.next = n;
         }
         return temp.next;
+    }
+
+    /**
+     *
+     *
+     * Given n non-negative integers representing an elevation map where the width of each bar is 1,
+     * compute how much water it can trap after raining.
+     *
+     *
+     * @param heights
+     * @return
+     */
+    public int trapRainWater(int[] heights) {
+        if (heights.length == 0) return 0;
+        int[] dpLeft = new int[heights.length];
+        int[] dpRight = new int[heights.length];
+
+        dpLeft[0] = heights[0];
+        for (int i = 1; i < heights.length; i++) {
+            dpLeft[i] = Math.max(dpLeft[i - 1], heights[i]);
+        }
+        dpRight[heights.length - 1] = heights[heights.length - 1];
+        for (int i = heights.length - 2; i >= 0; i--) {
+            dpRight[i] = Math.max(dpRight[i + 1], heights[i]);
+        }
+        int ans = 0;
+        for (int i = 0; i < heights.length; i++) {
+            ans += Math.min(dpLeft[i], dpRight[i]) - heights[i];
+        }
+        return ans;
     }
 
 }
