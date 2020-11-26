@@ -112,6 +112,56 @@ public class TreeTest extends SolutionTest {
         verify(expected2, actual2);
     }
 
+    private static void testVerticalOrderTraversal() {
+        System.out.println("Running maximum tree width tests...");
+        BinaryTreeNode root = new BinaryTreeNode(10);
+        root.left = new BinaryTreeNode(5);
+        root.right = new BinaryTreeNode(6);
+
+        root.left.left = new BinaryTreeNode(7);
+        root.left.right = new BinaryTreeNode(4);
+        root.right.right = new BinaryTreeNode(1);
+
+        List<List<Integer>> expected1 = new ArrayList<>();
+        expected1.add(Collections.singletonList(7));
+        expected1.add(Collections.singletonList(5));
+        expected1.add(Arrays.asList(10, 4));
+        expected1.add(Collections.singletonList(6));
+        expected1.add(Collections.singletonList(1));
+
+        List<List<Integer>> actual1 = treeSolution.verticalOrderTraversal(root);
+        System.out.print("test 1: ");
+        verify(expected1, actual1);
+
+        BinaryTreeNode root2 = new BinaryTreeNode(10);
+        root2.left = new BinaryTreeNode(5);
+        root2.right = new BinaryTreeNode(6);
+
+        root2.left.right = new BinaryTreeNode(4);
+        root2.right.right = new BinaryTreeNode(1);
+        root2.right.left = new BinaryTreeNode(7);
+
+        List<List<Integer>> expected2 = new ArrayList<>();
+        expected2.add(Collections.singletonList(5));
+        expected2.add(Arrays.asList(10, 4, 7));
+        expected2.add(Collections.singletonList(6));
+        expected2.add(Collections.singletonList(1));
+
+        List<List<Integer>> actual2 = treeSolution.verticalOrderTraversal(root2);
+        System.out.print("test 2: ");
+        verify(expected2, actual2);
+
+        BinaryTreeNode root3 = new BinaryTreeNode(10);
+
+        List<List<Integer>> expected3 = new ArrayList<>();
+        expected3.add(Collections.singletonList(10));
+
+        List<List<Integer>> actual3 = treeSolution.verticalOrderTraversal(root3);
+        System.out.print("test 3: ");
+        verify(expected3, actual3);
+
+    }
+
 
 
 }

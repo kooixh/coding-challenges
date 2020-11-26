@@ -4,8 +4,10 @@ import com.kooixiuhong.challenges.graphs.trees.extras.BinaryTreeNode;
 import com.kooixiuhong.commons.extras.Pair;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 public class TreeSolution {
@@ -91,6 +93,45 @@ public class TreeSolution {
     public int maxDepth(BinaryTreeNode root) {
         if (root == null) return 0;
         return Math.max(maxDepth(root.left) + 1, maxDepth(root.right) + 1);
+    }
+
+    /**
+     *
+     * Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column).
+     *
+     * If two nodes are in the same row and column, the order should be from left to right.
+     *
+     * @param node
+     * @return
+     */
+    public List<List<Integer>> verticalOrderTraversal(BinaryTreeNode node) {
+        Map<Integer, List<Integer>> levelMap = new HashMap<>();
+
+        Queue<Pair<BinaryTreeNode, Integer>> q = new LinkedList<>();
+        q.offer(new Pair<>(node, 0));
+        int min = 0;
+        int max = 0;
+        while (!q.isEmpty()) {
+            Pair<BinaryTreeNode, Integer> p = q.poll();
+            if (!levelMap.containsKey(p.getValue())) {
+                levelMap.put(p.getValue(), new ArrayList<>());
+            }
+            levelMap.get(p.getValue()).add(p.getKey().val);
+            if (p.getKey().left != null) {
+                q.offer(new Pair<>(p.getKey().left, p.getValue() - 1));
+                min = Math.min(min, p.getValue() - 1);
+            }
+            if (p.getKey().right != null) {
+                q.offer(new Pair<>(p.getKey().right, p.getValue() + 1));
+                max = Math.max(max, p.getValue() + 1);
+            }
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = min; i <= max; i++) {
+            ans.add(levelMap.get(i));
+        }
+        return ans;
+
     }
 
 }
