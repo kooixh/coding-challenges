@@ -147,7 +147,6 @@ public class TreeSolution {
         return isSubTreeHelper(s, t, false);
     }
 
-
     public boolean isSubTreeHelper(BinaryTreeNode s, BinaryTreeNode t, boolean matching) {
         if (s == null && t == null) return true;
         if (s == null ^ t == null) return false;
@@ -162,5 +161,23 @@ public class TreeSolution {
         if (left) return true;
         return isSubTreeHelper(s.left, t, false);
     }
+
+    /**
+     *
+     *  Invert a binary tree
+     *
+     * @param node
+     * @return
+     */
+    public BinaryTreeNode invertBinaryTree(BinaryTreeNode node) {
+        if (node == null) return  null;
+        invertBinaryTree(node.left);
+        invertBinaryTree(node.right);
+        BinaryTreeNode t = node.left;
+        node.left = node.right;
+        node.right = t;
+        return node;
+    }
+
 
 }

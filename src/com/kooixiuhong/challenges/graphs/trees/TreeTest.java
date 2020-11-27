@@ -204,6 +204,43 @@ public class TreeTest extends SolutionTest {
 
     }
 
+    private static void testInvertBinaryTree() {
+        System.out.println("Running invert binary tree tests...");
+        BinaryTreeNode root = new BinaryTreeNode(10);
+        root.left = new BinaryTreeNode(5);
+        root.right = new BinaryTreeNode(6);
+
+        root.left.left = new BinaryTreeNode(7);
+        root.left.right = new BinaryTreeNode(4);
+        root.right.right = new BinaryTreeNode(1);
+
+        BinaryTreeNode expected1 = new BinaryTreeNode(10);
+        expected1.right = new BinaryTreeNode(5);
+        expected1.left = new BinaryTreeNode(6);
+
+        expected1.right.right = new BinaryTreeNode(7);
+        expected1.right.left = new BinaryTreeNode(4);
+        expected1.left.left = new BinaryTreeNode(1);
+
+        BinaryTreeNode actual1 = treeSolution.invertBinaryTree(root);
+        System.out.print("test 1: ");
+        verifyBinaryTreeEqual(expected1, actual1);
+
+        BinaryTreeNode root2 = new BinaryTreeNode(1);
+        root.left = new BinaryTreeNode(2);
+        root.right = new BinaryTreeNode(3);
+
+        BinaryTreeNode expected2 = new BinaryTreeNode(1);
+        expected1.right = new BinaryTreeNode(2);
+        expected1.left = new BinaryTreeNode(3);
+
+        BinaryTreeNode actual2 = treeSolution.invertBinaryTree(root2);
+        System.out.print("test 1: ");
+        verifyBinaryTreeEqual(expected2, actual2);
+
+
+    }
+
 
 
 }

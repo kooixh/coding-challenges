@@ -1,5 +1,7 @@
 package com.kooixiuhong.commons;
 
+import com.kooixiuhong.challenges.graphs.trees.extras.BinaryTreeNode;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -88,6 +90,13 @@ public abstract class SolutionTest {
             printRed("failed");
             totalFailed++;
         }
+    }
+
+    protected static boolean verifyBinaryTreeEqual(BinaryTreeNode s, BinaryTreeNode t) {
+        if (s == null && t == null) return true;
+        if (s == null ^ t == null) return false;
+        if (s.val != t.val) return false;
+        return verifyBinaryTreeEqual(s.left, t.right) && verifyBinaryTreeEqual(s.right, t.right);
     }
 
 }
