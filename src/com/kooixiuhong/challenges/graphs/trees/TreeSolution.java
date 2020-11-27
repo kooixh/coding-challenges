@@ -134,4 +134,33 @@ public class TreeSolution {
 
     }
 
+    /**
+     *
+     *
+     * Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values
+     * with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants.
+     * The tree s could also be considered as a subtree of itself.
+     *
+     * @return
+     */
+    public boolean isSubTree(BinaryTreeNode s, BinaryTreeNode t) {
+        return isSubTreeHelper(s, t, false);
+    }
+
+
+    public boolean isSubTreeHelper(BinaryTreeNode s, BinaryTreeNode t, boolean matching) {
+        if (s == null && t == null) return true;
+        if (s == null ^ t == null) return false;
+
+        if (s.val == t.val) {
+            boolean left = isSubTreeHelper(s.left, t.left, true);
+            boolean right = isSubTreeHelper(s.right, t.right, true);
+            return (left && right);
+        }
+        if (matching) return false;
+        boolean left = isSubTreeHelper(s.left, t, false);
+        if (left) return true;
+        return isSubTreeHelper(s.left, t, false);
+    }
+
 }

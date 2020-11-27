@@ -162,6 +162,48 @@ public class TreeTest extends SolutionTest {
 
     }
 
+    private static void testIsSubTree() {
+        System.out.println("Running is sub tree tests...");
+        BinaryTreeNode root = new BinaryTreeNode(10);
+        root.left = new BinaryTreeNode(5);
+        root.right = new BinaryTreeNode(6);
+
+        root.left.left = new BinaryTreeNode(7);
+        root.left.right = new BinaryTreeNode(4);
+        root.right.right = new BinaryTreeNode(1);
+
+        BinaryTreeNode sub1 = new BinaryTreeNode(5);
+        sub1.left = new BinaryTreeNode(7);
+        sub1.right = new BinaryTreeNode(4);
+
+        boolean actual1 = treeSolution.isSubTree(root, sub1);
+        System.out.print("test 1: ");
+        verify(true, actual1);
+
+        BinaryTreeNode root2 = new BinaryTreeNode(10);
+        root2.left = new BinaryTreeNode(5);
+        root2.right = new BinaryTreeNode(6);
+
+        root2.left.left = new BinaryTreeNode(7);
+        root2.left.right = new BinaryTreeNode(4);
+        root2.right.right = new BinaryTreeNode(1);
+
+        BinaryTreeNode sub2 = new BinaryTreeNode(6);
+        sub2.left = new BinaryTreeNode(7);
+        sub2.right = new BinaryTreeNode(4);
+
+        boolean actual2 = treeSolution.isSubTree(root2, sub2);
+        System.out.print("test 2: ");
+        verify(false, actual2);
+
+        BinaryTreeNode root3 = new BinaryTreeNode(10);
+        BinaryTreeNode sub3 = new BinaryTreeNode(10);
+        boolean actual3 = treeSolution.isSubTree(root3, sub3);
+        System.out.print("test 3: ");
+        verify(true, actual3);
+
+    }
+
 
 
 }
