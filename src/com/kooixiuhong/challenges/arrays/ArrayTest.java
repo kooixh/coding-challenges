@@ -375,5 +375,33 @@ public class ArrayTest extends SolutionTest {
         verify(ex4, actual4);
     }
 
+    static void testBinarySearch() {
+        System.out.println("Running trapping rain water tests...");
+        int[] arr1 = {1,2,4,8,10,14,18,23,27};
+        int tar1 = 18;
+        int ex1 = 6;
+
+        int actual1 = solution.binarySearch(arr1, tar1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {1,2,4,8,10,14,18,23,27};
+        int tar2 = 1;
+        int ex2 = 0;
+
+        int actual2 = solution.binarySearch(arr2, tar2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+        int[] arr3 = {1,2,4,8,10,14,18,23,27};
+        int tar3 = 25;
+        int ex3 = -1;
+
+        int actual3 = solution.binarySearch(arr3, tar3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+
+    }
+
 
 }
