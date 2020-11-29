@@ -403,5 +403,30 @@ public class ArrayTest extends SolutionTest {
 
     }
 
+    static void testBuySellStockSingle() {
+        System.out.println("Running buy sell stock 1 tests...");
+        int[] arr1 = {7,1,5,3,6,4};
+        int ex1 = 5;
+
+        int actual1 = solution.buySellStockSingle(arr1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {7,6,4,3,1};
+        int ex2 = 0;
+
+        int actual2 = solution.buySellStockSingle(arr2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+        int[] arr3 = {5,3,3,10,1,8,5};
+        int ex3 = 7;
+
+        int actual3 = solution.buySellStockSingle(arr3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+
+    }
+
 
 }
