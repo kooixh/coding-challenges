@@ -453,5 +453,30 @@ public class ArrayTest extends SolutionTest {
 
     }
 
+    static void testJumpGame() {
+        System.out.println("Running jump game tests...");
+        int[] arr1 = {2,3,1,1,4};
+        boolean ex1 = true;
+
+        boolean actual1 = solution.jumpGame(arr1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {3,2,1,0,4};
+        boolean ex2 = false;
+
+        boolean actual2 = solution.jumpGame(arr2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+        int[] arr3 = {1,1,1,2,0};
+        boolean ex3 = true;
+
+        boolean actual3 = solution.jumpGame(arr3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+
+    }
+
 
 }

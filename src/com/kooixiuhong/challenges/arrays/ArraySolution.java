@@ -453,6 +453,27 @@ public class ArraySolution {
 
     }
 
+    /**
+     *
+     * Given an array of non-negative integers, you are initially positioned at the first index of the array.
+     *
+     * Each element in the array represents your maximum jump length at that position.
+     *
+     * Determine if you are able to reach the last index.
+     *
+     * @param arr
+     * @return
+     */
+    public boolean jumpGame(int[] arr) {
+        int last = arr.length - 1;
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] + i >= last) {
+                last = i;
+            }
+        }
+        return last == 0;
+    }
+
 
 
 }
