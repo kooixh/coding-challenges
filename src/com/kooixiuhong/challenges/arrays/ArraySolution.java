@@ -474,6 +474,4 @@ public class ArraySolution {
         return last == 0;
     }
 
-
-
 }
