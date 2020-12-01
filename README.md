@@ -4,6 +4,10 @@ A series of coding challenges questions and solution in various topics
 Feel free to add new questions and solution to the project
 
 
+## Dependencies 
+* [Reflection](https://github.com/ronmamo/reflections)
+* [Javassist](https://mvnrepository.com/artifact/org.javassist/javassist)
+
 ## Instructions
 
 1. Write your question in the appropriate docstring before the implementation method.
@@ -19,12 +23,12 @@ Example
   * Ref: https://leetcode.com/problems/number-of-islands/
   */
 public int numberOfIslands(int[][] map) {
-}
-        
+}       
 ```
-2. Write a test method for the solution prefixed with "testXXX", this prefix is needed for the 
+2. Create a Test class suffixed with "XxxTest" to test the implementation, this will be run automatically.
+3. Write a test method for the solution prefixed with "testXXX", this prefix is needed for the 
 test to be run automatically.
-3. Make sure tests pass by calling the verify result method.
+4. Make sure tests pass by calling the verify result method.
 
 Example
 ```java
