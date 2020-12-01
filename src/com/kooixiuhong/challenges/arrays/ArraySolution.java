@@ -408,7 +408,51 @@ public class ArraySolution {
             }
         }
         return maxProfit;
+    }
+
+    /**
+     *
+     * You are given an array representing a row of seats where seats[i] = 1 represents a person sitting in the ith seat,
+     * and seats[i] = 0 represents that the ith seat is empty (0-indexed).
+     *
+     * There is at least one empty seat, and at least one person sitting.
+     *
+     * Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized.
+     *
+     * Return that maximum distance to the closest person.
+     * @return
+     */
+    public int findMaxDistanceSeat(int[] arr) {
+        if (arr.length == 0) return 0;
+        int[] dpLeft = new int[arr.length];
+        int[] dpRight = new int[arr.length];
+        Arrays.fill(dpLeft, arr.length);
+        Arrays.fill(dpRight, arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 1) {
+                dpLeft[i] = 0;
+            } else if (i > 0) {
+                dpLeft[i] = dpLeft[i - 1] + 1;
+            }
+        }
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] == 1) {
+                dpRight[i] = 0;
+            } else if (i < arr.length - 1) {
+                dpRight[i] = dpRight[i + 1] + 1;
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 0) {
+                max = Math.max(Math.min(dpLeft[i], dpRight[i]), max);
+            }
+        }
+        return max;
 
     }
+
+
 
 }

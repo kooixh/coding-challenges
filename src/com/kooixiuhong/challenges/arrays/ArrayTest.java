@@ -428,5 +428,30 @@ public class ArrayTest extends SolutionTest {
 
     }
 
+    static void testFindMaxDistanceSeat() {
+        System.out.println("Running find max distance seats tests...");
+        int[] arr1 = {1,0,0,0,1,0,1};
+        int ex1 = 2;
+
+        int actual1 = solution.findMaxDistanceSeat(arr1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {1,0,0,0};
+        int ex2 = 3;
+
+        int actual2 = solution.findMaxDistanceSeat(arr2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+        int[] arr3 = {0,1};
+        int ex3 = 1;
+
+        int actual3 = solution.findMaxDistanceSeat(arr3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+
+    }
+
 
 }
