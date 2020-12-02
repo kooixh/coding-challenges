@@ -43,7 +43,7 @@ public class ArrayTest extends SolutionTest {
         }
     }
 
-    public static void testReturnLinkedList() {
+    public static void testReverseLinkedList() {
         System.out.println("Running reverse linked list tests...");
         int[] input = {1, 2, 3, 4, 5};
         System.out.print("test 1: ");
@@ -476,6 +476,65 @@ public class ArrayTest extends SolutionTest {
         System.out.print("test 3: ");
         verify(ex3, actual3);
 
+    }
+
+
+    public static void testDeleteLinkedList() {
+        System.out.println("Running delete linked list elements tests...");
+
+        System.out.print("test 1: ");
+        ListNode list1 = new ListNode(1); // head of the list
+        list1.next = new ListNode(2);
+        list1.next.next = new ListNode(2);
+        list1.next.next.next = new ListNode(3);
+        list1.next.next.next.next = new ListNode(5);
+        list1.next.next.next.next.next = new ListNode(6);
+
+
+        int[] expected = {1,3,5,6};
+        ListNode actual = solution.deleteElements(list1, 2);
+        boolean isPassed = true;
+        for (int i : expected) {
+            if (actual == null || actual.value != i) {
+                isPassed = false;
+                break;
+            }
+            actual = actual.next;
+        }
+        if (isPassed) {
+            totalPassed++;
+            printGreen("passed");
+        } else {
+            totalFailed++;
+            printRed("failed");
+        }
+
+        System.out.print("test 2: ");
+        ListNode list2 = new ListNode(1); // head of the list
+        list2.next = new ListNode(2);
+        list2.next.next = new ListNode(2);
+        list2.next.next.next = new ListNode(3);
+        list2.next.next.next.next = new ListNode(5);
+        list2.next.next.next.next.next = new ListNode(6);
+
+
+        int[] expected2 = {1,2,2,3,6};
+        ListNode actual2 = solution.deleteElements(list2, 5);
+        boolean isPassed2 = true;
+        for (int i : expected2) {
+            if (actual2 == null || actual2.value != i) {
+                isPassed2 = false;
+                break;
+            }
+            actual2 = actual2.next;
+        }
+        if (isPassed2) {
+            totalPassed++;
+            printGreen("passed");
+        } else {
+            totalFailed++;
+            printRed("failed");
+        }
     }
 
 

@@ -474,4 +474,26 @@ public class ArraySolution {
         return last == 0;
     }
 
+    /**
+     *
+     * Remove all the element val from the list
+     *
+     * @param node
+     * @param val
+     * @return
+     */
+    public ListNode deleteElements(ListNode node, int val) {
+        ListNode temp = new ListNode();
+        temp.next = node;
+        ListNode c = temp;
+        while (c != null) {
+            if (c.next != null && c.next.value == val) {
+                c.next = c.next.next;
+                continue;
+            }
+            c = c.next;
+        }
+        return temp.next;
+    }
+
 }
