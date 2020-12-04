@@ -537,5 +537,23 @@ public class ArrayTest extends SolutionTest {
         }
     }
 
+    static void testHouseRobber() {
+        System.out.println("Running house robber tests...");
+        int[] arr1 = {1,2,3,1};
+        int ex1 = 4;
+
+        int actual1 = solution.houseRobber(arr1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {2,7,9,3,1};
+        int ex2 = 12;
+
+        int actual2 = solution.houseRobber(arr2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+    }
+
 
 }
