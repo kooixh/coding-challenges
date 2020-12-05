@@ -555,5 +555,33 @@ public class ArrayTest extends SolutionTest {
 
     }
 
+    static void testKEmptySlots() {
+        System.out.println("Running k empty slots tests...");
+        int[] arr1 = {1,3,2};
+        int tar1 = 1;
+        int ex1 = 2;
+
+        int actual1 = solution.kEmptySlots(arr1, tar1);
+        System.out.print("test 1: ");
+        verify(ex1, actual1);
+
+        int[] arr2 = {1,2,3};
+        int tar2 = 1;
+        int ex2 = -1;
+
+        int actual2 = solution.kEmptySlots(arr2, tar2);
+        System.out.print("test 2: ");
+        verify(ex2, actual2);
+
+        int[] arr3 = {3,9,2,8,1,6,10,5,4,7};
+        int tar3 = 1;
+        int ex3 = 6;
+
+        int actual3 = solution.kEmptySlots(arr3, tar3);
+        System.out.print("test 3: ");
+        verify(ex3, actual3);
+
+    }
+
 
 }

@@ -519,4 +519,42 @@ public class ArraySolution {
         return dp[dp.length - 1];
     }
 
+
+    /**
+     *
+     * ou have n bulbs in a row numbered from 1 to n. Initially, all the bulbs are turned off.
+     * We turn on exactly one bulb every day until all bulbs are on after n days.
+     *
+     * You are given an array bulbs of length n where bulbs[i] = x means that on the (i+1)th day,
+     * we will turn on the bulb at position x where i is 0-indexed and x is 1-indexed.
+     *
+     * Given an integer k, return the minimum day number such that there exists two turned on
+     * bulbs that have exactly k bulbs between them that are all turned off. If there isn't such day, return -1.
+     *
+     *
+     * @param bulbs
+     * @param k
+     * @return
+     */
+    public int kEmptySlots(int[] bulbs, int k) {
+        int[] days = new int[bulbs.length];
+        for (int i = 0; i < bulbs.length; i++) {
+            days[bulbs[i] - 1] = i + 1;
+        }
+        int left = 0;
+        int right = k + 1;
+        int day = Integer.MAX_VALUE;
+        for (int i = 0; right < bulbs.length; i++) {
+            if (days[i] < days[left] || days[i] <= days[right]) {
+                if (i == right) {
+                    day = Math.min(day, Math.max(days[left], days[right]));
+                }
+                left = i;
+                right = i + k + 1;
+            }
+        }
+
+        return day == Integer.MAX_VALUE ? -1 : day;
+    }
+
 }
