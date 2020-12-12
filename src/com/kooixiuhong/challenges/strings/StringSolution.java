@@ -142,6 +142,14 @@ public class StringSolution {
         return longest;
     }
 
+    /**
+     *
+     *
+     * Given a string generate all permutations
+     *
+     * @param s
+     * @return
+     */
     public List<String> permutationOfAString(String s) {
         List<String> ans = new ArrayList<>();
         permute(s.toCharArray(), 0, ans);
