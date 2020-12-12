@@ -1,6 +1,9 @@
 package com.kooixiuhong.challenges.strings;
 
+import com.kooixiuhong.commons.Utils;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -139,5 +142,22 @@ public class StringSolution {
         return longest;
     }
 
+    public List<String> permutationOfAString(String s) {
+        List<String> ans = new ArrayList<>();
+        permute(s.toCharArray(), 0, ans);
+        return ans;
+    }
+
+    private void permute(char[] chars, int i, List<String> ans) {
+        if (i == chars.length) {
+            ans.add(new String(chars));
+            return;
+        }
+        for (int j = i; j < chars.length; j++) {
+            Utils.swap(chars, i, j);
+            permute(chars, j, ans);
+            Utils.swap(chars, i, j);
+        }
+    }
 
 }

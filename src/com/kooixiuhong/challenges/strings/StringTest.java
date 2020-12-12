@@ -4,6 +4,7 @@ import com.kooixiuhong.commons.SolutionTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -162,6 +163,27 @@ public class StringTest extends SolutionTest {
         int actual4 = stringSolution.longestCommonSubString(ex4In1, ex4In2);
         System.out.print("test 4: ");
         verify(expected4, actual4);
+
+    }
+
+
+    static void permutationOfString() {
+        System.out.println("Running permutation of string test");
+
+        String s1 = "ab";
+        List<String> ex1 = new ArrayList<>(Arrays.asList("ab", "ba"));
+        List<String> ac = stringSolution.permutationOfAString(s1);
+        System.out.print("test 1: ");
+        verifyListContainsAll(ex1, ac);
+
+        String s2 = "abc";
+        List<String> ex2 = new ArrayList<>(Arrays.asList("abc", "bac", "acb", "bca", "cab", "cba"));
+        List<String> ac2 = stringSolution.permutationOfAString(s2);
+        System.out.print("test 2: ");
+        verifyListContainsAll(ex2, ac2);
+
+
+
 
     }
 
