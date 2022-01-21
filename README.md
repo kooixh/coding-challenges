@@ -5,8 +5,11 @@ Feel free to add new questions and solution to the project
 
 
 ## Dependencies 
-* [Reflection](https://github.com/ronmamo/reflections)
-* [Javassist](https://mvnrepository.com/artifact/org.javassist/javassist)
+* [Maven](https://maven.apache.org/)
+
+## Install
+
+`mvn clean install` to install dependencies, build and run the application. 
 
 ## Instructions
 
